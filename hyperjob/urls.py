@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from vacancy.views import IndexView, VacanciesView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", IndexView.as_view()),
+    path("vacancies/", VacanciesView.as_view()),
 ]
