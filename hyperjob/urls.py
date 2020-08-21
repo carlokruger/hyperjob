@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vacancy.views import IndexView, VacanciesView
+from vacancy.views import IndexView, VacanciesView, MySignupView, MyLoginView
+from resume.views import ResumesView
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", IndexView.as_view()),
-    path("vacancies/", VacanciesView.as_view()),
+    path("vacancies", VacanciesView.as_view()),
+    path("resumes", ResumesView.as_view()),
+    path("signup", MySignupView.as_view()),
+    path("login", MyLoginView.as_view()),
+    path('login/', RedirectView.as_view(url='/login')),
+    path('signup/', RedirectView.as_view(url='/signup')),
 ]

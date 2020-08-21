@@ -6,5 +6,10 @@
 </head>
 <body>
 <h1>Open Vacancies</h1>
+<ul>
+    {% for vacancy in vacancies %}
+    <li>{{vacancy.author.username}}: {{vacancy.description}}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
